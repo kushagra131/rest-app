@@ -14,27 +14,19 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NonNull;
-import lombok.ToString;
+import lombok.*;
 
 
 @Entity
 @Table(name="MACHINE")
 @Data
+@NoArgsConstructor
 public class Machine implements Serializable {
 
 	/**
 	 * serialVersionUID used for Serialization
 	 */
 	private static final long serialVersionUID = 4747325346342122382L;
-	
-	
-	public Machine() {
-		super();
-	}
-
 	
 
 	@Id

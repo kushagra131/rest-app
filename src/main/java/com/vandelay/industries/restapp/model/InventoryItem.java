@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
 
@@ -25,18 +26,13 @@ import lombok.ToString;
 @Entity
 @Table(name="INVENTORY_ITEM")
 @Data
+@NoArgsConstructor
 public class InventoryItem implements Serializable {
 
 	/**
 	 * serialVersionUID used for Serialization
 	 */
 	private static final long serialVersionUID = -7750437474646963317L;
-	
-	
-	public InventoryItem() {
-		super();
-	}
-
 
 
 	@Id

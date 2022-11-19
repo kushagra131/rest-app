@@ -14,28 +14,19 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NonNull;
-import lombok.ToString;
-
+import lombok.*;
 
 
 @Entity
 @Table(name="ADDRESS")
 @Data
+@NoArgsConstructor
 public class Address implements Serializable {
 
 	/**
 	 * serialVersionUID used for Serialization
 	 */
 	private static final long serialVersionUID = 3819889974141445220L;
-	
-	
-	public Address() {
-		super();
-	}
-	
 
 
 	@Id

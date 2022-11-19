@@ -16,24 +16,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 
 @Entity
 @Table(name="WAREHOUSE")
 @Data
+@NoArgsConstructor
 public class Warehouse implements Serializable {
 
 	/**
 	 * serialVersionUID used for Serialization
 	 */
 	private static final long serialVersionUID = 2424689080134802662L;
-	
-	
-	public Warehouse() {
-		super();
-	}
-
 
 
 	@Id

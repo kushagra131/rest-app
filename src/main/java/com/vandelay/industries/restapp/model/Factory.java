@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 
@@ -26,20 +27,13 @@ import lombok.NonNull;
 @Entity
 @Table(name="FACTORY")
 @Data
+@NoArgsConstructor
 public class Factory implements Serializable {
-	
-
 
 	/**
 	 * serialVersionUID used for Serialization
 	 */
 	private static final long serialVersionUID = -4489104187634349291L;
-	
-	
-	public Factory() {
-		super();
-	}
-	
 
 
 	@Id
