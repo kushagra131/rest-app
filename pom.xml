@@ -8,18 +8,19 @@
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.vandelay.industries</groupId>
 	<artifactId>rest-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>rest-app</name>
 	<description>Restful API Analysis and Demo for Vandelay Industries</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -66,7 +67,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 	</dependencies>
 
 	<build>
