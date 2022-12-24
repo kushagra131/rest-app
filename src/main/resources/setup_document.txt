@@ -5,13 +5,13 @@ Steps for setting up and running the App:
 
 2. Install the dependencies -> click on Project -> Clean and Build.
 
-3. Assuming there are no errors at the parent project level -> we will move onto setting up our DB connection, preferrably MySQL
+3. Assuming there are no errors at the parent project level -> we will move onto setting up our DB connection, preferably MySQL
 
 4. Assuming you have MySQL and MySQL Client installed.
 
-5. Setup a new connection 	-> give any name ex. "LocalInstance" 
-							-> setup a user name -> currently set to  root
-							-> setup a password -> currently set to  root#131
+5. Set up a new connection 	-> give any name ex. "LocalInstance"
+							-> setup a user name -> currently set to root
+							-> setup a password -> currently set to root#131
 							
 6. Create a new Schema for your DB.
 
