@@ -5,8 +5,6 @@ import org.springframework.http.ResponseEntity;
 import com.vandelay.industries.restapp.model.Factory;
 import com.vandelay.industries.restapp.model.Machine;
 
-
-
 public interface FactoryService {
 	
 	ResponseEntity<?> listFactories();

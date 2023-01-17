@@ -11,14 +11,14 @@ Steps for setting up and running the App:
 
 5. Set up a new connection 	-> give any name ex. "LocalInstance"
 							-> setup a user name -> currently set to root
-							-> setup a password -> currently set to root#131
+							-> setup a password -> currently set to root
 							
 6. Create a new Schema for your DB.
 
 7. Last step, is to go to application.properties file 
 							-> go to -> spring.datasource.url=jdbc:mysql://localhost:3306/----------? -> Enter your DB Schema name in place of blank space -> currently set to user_devl1
 							-> go to -> spring.datasource.username=root    			-> put your username
-							-> go to -> spring.datasource.password=root#131			-> put your password
+							-> go to -> spring.datasource.password=root 			-> put your password
 							
 							
 Your DB connection is ready for setup.

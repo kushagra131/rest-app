@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.vandelay.industries.restapp.exception.ResourceNotFoundException;
 
-
-
 @ControllerAdvice
 public class ResourceNotFoundAdvice {
 	

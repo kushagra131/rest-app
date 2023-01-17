@@ -16,19 +16,16 @@ import com.vandelay.industries.restapp.repository.FactoryRepository;
 
 import lombok.NonNull;
 
-
-
 @Service
 @Transactional
 public class FactoryServiceImpl implements FactoryService {
-	
-	
-	@Autowired
+
 	private FactoryRepository factoryRepository;
-	
-	
-	
-	@Transactional(readOnly=true)
+	@Autowired
+	public FactoryServiceImpl(FactoryRepository factoryRepository) {
+		this.factoryRepository = factoryRepository;
+	}
+
 	@Override
 	public ResponseEntity<?> listFactories() {
 		List<Factory> factories = factoryRepository.findAll();
@@ -38,9 +35,6 @@ public class FactoryServiceImpl implements FactoryService {
 			return ResponseEntity.ok().body(factories);
 	}
 
-
-	
-	@Transactional
 	@Override
 	public ResponseEntity<?> addFactory(@NonNull Factory factory) {
 		
@@ -71,9 +65,6 @@ public class FactoryServiceImpl implements FactoryService {
 		return ResponseEntity.created(null).body(newFactory);
 	}
 
-
-	
-	@Transactional
 	@Override
 	public ResponseEntity<?> addMachineAtFactory(@NonNull Machine machine, @NonNull String factoryId) {
 		Optional<Factory> factory = Optional.ofNullable(factoryRepository.findById(Integer.valueOf(factoryId))
@@ -87,9 +78,6 @@ public class FactoryServiceImpl implements FactoryService {
 		return ResponseEntity.created(null).body(factoryRepository.save(factory.get()));
 	}
 
-
-	
-	@Transactional(readOnly=true)
 	@Override
 	public ResponseEntity<?> listMachinesAtFactory(@NonNull String factoryId) {
 		Optional<Factory> factory = Optional.ofNullable(factoryRepository.findById(Integer.valueOf(factoryId))
@@ -97,7 +85,4 @@ public class FactoryServiceImpl implements FactoryService {
 		
 		return ResponseEntity.ok().body(factory.get().getMachines());
 	}
-	
-	
-
 }

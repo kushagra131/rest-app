@@ -6,8 +6,6 @@ import com.vandelay.industries.restapp.model.InventoryItem;
 import com.vandelay.industries.restapp.model.InventoryUpdate;
 import com.vandelay.industries.restapp.model.Warehouse;
 
-
-
 public interface WarehouseService {
 	
 	ResponseEntity<?> listWarehouses();

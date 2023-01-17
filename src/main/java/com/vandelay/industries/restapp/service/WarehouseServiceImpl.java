@@ -18,23 +18,19 @@ import com.vandelay.industries.restapp.repository.WarehouseRepository;
 
 import lombok.NonNull;
 
-
-
 @Service
 @Transactional
 public class WarehouseServiceImpl implements WarehouseService {
-	
-	
-	@Autowired
+
 	private WarehouseRepository warehouseRepository;
-	
-	
-	@Autowired
 	private InventoryUpdateRepository inventoryUpdateRepository;
-	
-	
-	
-	@Transactional(readOnly=true)
+	@Autowired
+	public WarehouseServiceImpl(WarehouseRepository warehouseRepository,
+								InventoryUpdateRepository inventoryUpdateRepository) {
+		this.warehouseRepository = warehouseRepository;
+		this.inventoryUpdateRepository = inventoryUpdateRepository;
+	}
+
 	@Override
 	public ResponseEntity<?> listWarehouses() {
 		List<Warehouse> warehouses = warehouseRepository.findAll();
@@ -44,9 +40,6 @@ public class WarehouseServiceImpl implements WarehouseService {
 			return ResponseEntity.ok().body(warehouses);
 	}
 
-
-	
-	@Transactional
 	@Override
 	public ResponseEntity<?> addWarehouse(@NonNull Warehouse warehouse) {
 		Warehouse newWarehouse = new Warehouse();
@@ -81,9 +74,6 @@ public class WarehouseServiceImpl implements WarehouseService {
 		return ResponseEntity.created(null).body(newWarehouse);
 	}
 
-
-	
-	@Transactional(readOnly=true)
 	@Override
 	public ResponseEntity<?> getWarehouse(@NonNull String warehouseId) {
 		Optional<Warehouse> warehouse = Optional.ofNullable(warehouseRepository.findById(Integer.valueOf(warehouseId))
@@ -91,9 +81,6 @@ public class WarehouseServiceImpl implements WarehouseService {
 		return ResponseEntity.ok().body(warehouse.get());
 	}
 
-
-	
-	@Transactional(readOnly=true)
 	@Override
 	public ResponseEntity<?> getInventoryAtWarehouse(@NonNull String warehouseId) {
 		Optional<Warehouse> warehouse = Optional.ofNullable(warehouseRepository.findById(Integer.valueOf(warehouseId))
@@ -101,10 +88,7 @@ public class WarehouseServiceImpl implements WarehouseService {
 		
 		return ResponseEntity.ok().body(warehouse.get().getInventory());
 	}
-	
-	
-	
-	@Transactional
+
 	@Override
 	public ResponseEntity<?> addItemAtWarehouse(@NonNull InventoryItem inventoryItem,  @NonNull String warehouseId) {
 		Optional<Warehouse> warehouse = Optional.ofNullable(warehouseRepository.findById(Integer.valueOf(warehouseId))
@@ -121,9 +105,6 @@ public class WarehouseServiceImpl implements WarehouseService {
 		return ResponseEntity.created(null).body(warehouse.get());
 	}
 
-
-	
-	@Transactional
 	@Override
 	public ResponseEntity<?> updateItemAtWarehouse(@NonNull InventoryUpdate itemUpdate, @NonNull String warehouseId) {
 		Optional<Warehouse> warehouse = Optional.ofNullable(warehouseRepository.findById(Integer.valueOf(warehouseId))
@@ -142,5 +123,4 @@ public class WarehouseServiceImpl implements WarehouseService {
 		
 		return ResponseEntity.accepted().body(warehouse.get());
 	}
-
 }
