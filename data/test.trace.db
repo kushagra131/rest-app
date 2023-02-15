@@ -1,0 +1,163 @@
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table address (\000a       address_obj_id integer not null auto_increment,\000a        building_name varchar(50) not null,\000a        city varchar(25) not null,\000a        country varchar(25) not null,\000a        state varchar(25) not null,\000a        street1 varchar(100) not null,\000a        street2 varchar(50),\000a        zip_code varchar(15) not null,\000a        factory_obj_id integer,\000a        warehouse_obj_id integer,\000a        primary key (address_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table address (
+       address_obj_id integer not null auto_increment,
+        building_name varchar(50) not null,
+        city varchar(25) not null,
+        country varchar(25) not null,
+        state varchar(25) not null,
+        street1 varchar(100) not null,
+        street2 varchar(50),
+        zip_code varchar(15) not null,
+        factory_obj_id integer,
+        warehouse_obj_id integer,
+        primary key (address_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table factory (\000a       factory_obj_id integer not null auto_increment,\000a        factory_description varchar(100),\000a        factory_name varchar(50) not null,\000a        primary key (factory_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table factory (
+       factory_obj_id integer not null auto_increment,
+        factory_description varchar(100),
+        factory_name varchar(50) not null,
+        primary key (factory_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table inventory (\000a       warehouse_obj_id integer not null,\000a        primary key (warehouse_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table inventory (
+       warehouse_obj_id integer not null,
+        primary key (warehouse_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table inventory_item (\000a       item_obj_id integer not null auto_increment,\000a        item_description varchar(100),\000a        item_name varchar(50) not null,\000a        item_quantity integer not null,\000a        item_sku integer not null,\000a        inventory_obj_id integer not null,\000a        primary key (item_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table inventory_item (
+       item_obj_id integer not null auto_increment,
+        item_description varchar(100),
+        item_name varchar(50) not null,
+        item_quantity integer not null,
+        item_sku integer not null,
+        inventory_obj_id integer not null,
+        primary key (item_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table inventory_upd (\000a       item_obj_id integer not null,\000a        item_delete boolean default false not null,\000a        primary key (item_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table inventory_upd (
+       item_obj_id integer not null,
+        item_delete boolean default false not null,
+        primary key (item_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table machine (\000a       machine_obj_id integer not null auto_increment,\000a        machine_description varchar(100),\000a        machine_name varchar(50) not null,\000a        factory_obj_id integer not null,\000a        primary key (machine_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table machine (
+       machine_obj_id integer not null auto_increment,
+        machine_description varchar(100),
+        machine_name varchar(50) not null,
+        factory_obj_id integer not null,
+        primary key (machine_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table warehouse (\000a       warehouse_obj_id integer not null auto_increment,\000a        warehouse_description varchar(100),\000a        warehouse_name varchar(50) not null,\000a        primary key (warehouse_obj_id)\000a    ) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+
+    create table warehouse (
+       warehouse_obj_id integer not null auto_increment,
+        warehouse_description varchar(100),
+        warehouse_name varchar(50) not null,
+        primary key (warehouse_obj_id)
+    ) engine=InnoDB [42001-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found (this database is empty); SQL statement:
+
+    alter table address 
+       drop index UK_38bvybvwnufp9jul6u8w0kpec [42104-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found; SQL statement:
+
+    alter table address 
+       add constraint UK_38bvybvwnufp9jul6u8w0kpec unique (str [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found (this database is empty); SQL statement:
+
+    alter table address 
+       drop index UK_bh9msx9l12n9s6xgsn27ieyiv [42104-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found; SQL statement:
+
+    alter table address 
+       add constraint UK_bh9msx9l12n9s6xgsn27ieyiv unique (str [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found (this database is empty); SQL statement:
+
+    alter table address 
+       drop index UK_hpypxqvkyeptmffu6kihij9yj [42104-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found; SQL statement:
+
+    alter table address 
+       add constraint UK_hpypxqvkyeptmffu6kihij9yj unique (factory_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found (this database is empty); SQL statement:
+
+    alter table address 
+       drop index UK_3tve3qpor7l6rt2c0y1cnstbc [42104-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found; SQL statement:
+
+    alter table address 
+       add constraint UK_3tve3qpor7l6rt2c0y1cnstbc unique (warehouse_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INVENTORY_ITEM" not found (this database is empty); SQL statement:
+
+    alter table inventory_item 
+       drop index UK_6b7wa134rd7y1mfp9b4xsqn6u [42104-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INVENTORY_ITEM" not found; SQL statement:
+
+    alter table inventory_item 
+       add constraint UK_6b7wa134rd7y1mfp9b4xsqn6u unique (item [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found; SQL statement:
+
+    alter table address 
+       add constraint FK882mdpe22jxmyowpisradgv4n 
+       foreign key (factory_obj_id) 
+       references factory (factory_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ADDRESS" not found; SQL statement:
+
+    alter table address 
+       add constraint FK6lucmxufye09tvbty18fbkqbw 
+       foreign key (warehouse_obj_id) 
+       references warehouse (warehouse_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INVENTORY" not found; SQL statement:
+
+    alter table inventory 
+       add constraint FKnv7c8e0mn2dkvco0ojv1f3g1w 
+       foreign key (warehouse_obj_id) 
+       references warehouse (warehouse_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INVENTORY_ITEM" not found; SQL statement:
+
+    alter table inventory_item 
+       add constraint FKqxv2ac4fwk9otv1jgesq43vu3 
+       foreign key (inventory_obj_id) 
+       references inventory (warehouse_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INVENTORY_UPD" not found; SQL statement:
+
+    alter table inventory_upd 
+       add constraint FKlmllpiv8bf2vryuk8nqpxhjrb 
+       foreign key (item_obj_id) 
+       references inventory_item (item_ob [42102-214]
+2023-01-21 12:01:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MACHINE" not found; SQL statement:
+
+    alter table machine 
+       add constraint FK4g3e1afpnhji89xbm3w79ylc6 
+       foreign key (factory_obj_id) 
+       references factory (factory_ob [42102-214]

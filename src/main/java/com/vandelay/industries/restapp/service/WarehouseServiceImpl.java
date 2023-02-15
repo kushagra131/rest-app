@@ -77,7 +77,7 @@ public class WarehouseServiceImpl implements WarehouseService {
 	@Override
 	public ResponseEntity<?> getWarehouse(@NonNull String warehouseId) {
 		Optional<Warehouse> warehouse = Optional.ofNullable(warehouseRepository.findById(Integer.valueOf(warehouseId))
-											.orElseThrow(() -> new ResourceNotFoundException("Warehouse", warehouseId)));
+				.orElseThrow(() -> new ResourceNotFoundException("Warehouse", warehouseId)));
 		return ResponseEntity.ok().body(warehouse.get());
 	}
 
@@ -92,7 +92,7 @@ public class WarehouseServiceImpl implements WarehouseService {
 	@Override
 	public ResponseEntity<?> addItemAtWarehouse(@NonNull InventoryItem inventoryItem,  @NonNull String warehouseId) {
 		Optional<Warehouse> warehouse = Optional.ofNullable(warehouseRepository.findById(Integer.valueOf(warehouseId))
-											.orElseThrow(() -> new ResourceNotFoundException("Warehouse", warehouseId)));
+				.orElseThrow(() -> new ResourceNotFoundException("Warehouse", warehouseId)));
 		
 		Inventory inventory = warehouse.get().getInventory();
 		inventory.addItem(inventoryItem);
@@ -113,9 +113,9 @@ public class WarehouseServiceImpl implements WarehouseService {
 		Inventory inventory = warehouse.get().getInventory();
 		
 		InventoryItem inventoryItem = inventory.getItems().stream()
-								.filter(item -> item.getItemId().equals(itemUpdate.getItemId()))
-								.findAny()
-								.orElseThrow(() -> new ResourceNotFoundException("Inventory Item", String.valueOf(itemUpdate.getItemId())));
+				.filter(item -> item.getItemId().equals(itemUpdate.getItemId()))
+				.findAny()
+				.orElseThrow(() -> new ResourceNotFoundException("Inventory Item", String.valueOf(itemUpdate.getItemId())));
 		
 		InventoryUpdate inventoryUpdate = inventoryItem.getInventoryUpdate();
 		inventoryUpdate.setItemDelete(itemUpdate.getItemDelete());
