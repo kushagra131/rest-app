@@ -80,6 +80,7 @@ local.properties
 .idea/**
 .idea/
 *.iml
+data/*.trace.db
 
 # AWS User-specific
 .idea/**/aws.xml
