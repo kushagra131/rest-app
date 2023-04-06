@@ -38,7 +38,7 @@ public class AppUrlConstants {
 	/**
 	 * Add a factory
 	 */
-	public static final String ADD_FACTORY = "";
+	public static final String ADD_FACTORY = "/";
 	
 	
 	/**
