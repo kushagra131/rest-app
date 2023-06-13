@@ -11,6 +11,7 @@ import lombok.*;
 @Entity
 @Table(name="MACHINE")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Machine implements Serializable {
 
@@ -23,7 +24,6 @@ public class Machine implements Serializable {
 	private Integer machineId;
 
 	@Column(name="MACHINE_NAME", nullable=false, length=50)
-	@NonNull
 	@ApiModelProperty(notes="Machine Name", name="machineName", required=true, value="test machine name ABC")
 	private String machineName;
 
@@ -36,7 +36,6 @@ public class Machine implements Serializable {
 	@JsonIgnoreProperties("machines")
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name="FACTORY_OBJ_ID", nullable=false)
-	@NonNull
 	@ApiModelProperty(notes="Factory", name="factory", required=true)
 	private Factory factory;
 

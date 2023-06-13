@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -15,6 +17,7 @@ import lombok.ToString;
 @Entity
 @Table(name="INVENTORY")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Inventory implements Serializable {
 

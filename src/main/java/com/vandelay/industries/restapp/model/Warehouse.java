@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -13,6 +15,7 @@ import lombok.NonNull;
 @Entity
 @Table(name="WAREHOUSE")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Warehouse implements Serializable {
 
@@ -25,7 +28,6 @@ public class Warehouse implements Serializable {
 	private Integer warehouseId;
 
 	@Column(name="WAREHOUSE_NAME", nullable=false, length=50)
-	@NonNull
 	@ApiModelProperty(notes="Warehouse Name", name="warehouseName", required=true, value="test warehouse name ABC")
 	private String warehouseName;
 

@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -13,6 +15,7 @@ import lombok.ToString;
 @Entity
 @Table(name="INVENTORY_UPD")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class InventoryUpdate implements Serializable {
 
