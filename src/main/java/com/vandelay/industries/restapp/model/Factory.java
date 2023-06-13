@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -15,6 +17,7 @@ import lombok.NonNull;
 @Entity
 @Table(name="FACTORY")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Factory implements Serializable {
 
@@ -27,7 +30,6 @@ public class Factory implements Serializable {
 	private Integer factoryId;
 
 	@Column(name="FACTORY_NAME", nullable=false, length=50)
-	@NonNull
 	@ApiModelProperty(notes="Factory Name", name="factoryName", required=true, value="test factory ABC")
 	private String factoryName;
 
@@ -37,7 +39,6 @@ public class Factory implements Serializable {
 
 	@JsonIgnoreProperties("factory")
 	@OneToOne(mappedBy="factory", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)
-	@NonNull
 	@ApiModelProperty(notes="Factory Address", name="address", required=true)
 	private Address address;
 

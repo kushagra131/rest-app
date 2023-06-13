@@ -3,16 +3,15 @@ package com.vandelay.industries.restapp.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.ToString;
+
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name="INVENTORY_ITEM")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class InventoryItem implements Serializable {
 
@@ -25,17 +24,14 @@ public class InventoryItem implements Serializable {
 	private Integer itemId;
 
 	@Column(name="ITEM_SKU", unique=true, nullable=false, length=10)
-	@NonNull
 	@ApiModelProperty(notes="Item SKU#", name="itemSKU", required=true, value="123456789")
 	private Integer itemSKU;
 
 	@Column(name="ITEM_QUANTITY", nullable=false)
-	@NonNull
 	@ApiModelProperty(notes="Item Quantity", name="itemQuantity", required=true, value="10")
 	private Integer itemQuantity;
 
 	@Column(name="ITEM_NAME", nullable=false, length=50)
-	@NonNull
 	@ApiModelProperty(notes="Item Name", name="itemName", required=true, value="test item name qwerty")
 	private String itemName;
 
@@ -47,7 +43,6 @@ public class InventoryItem implements Serializable {
 	@JsonIgnoreProperties("items")
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name="INVENTORY_OBJ_ID", nullable=false)
-	@NonNull
 	@ApiModelProperty(notes="Inventory", name="inventory", required=true)
 	private Inventory inventory;
 

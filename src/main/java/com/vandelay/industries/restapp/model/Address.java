@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="ADDRESS")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Address implements Serializable {
 
@@ -26,7 +27,7 @@ public class Address implements Serializable {
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@JsonIgnoreProperties("address")
-	@OneToOne(/*optional=true,*/ fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="FACTORY_OBJ_ID", unique=true, insertable=true, nullable=true)
 	@ApiModelProperty(notes="Factory", name="factory", required=true)
 	private Factory factory;
@@ -34,18 +35,16 @@ public class Address implements Serializable {
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@JsonIgnoreProperties("address")
-	@OneToOne(/*optional=true,*/ fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="WAREHOUSE_OBJ_ID", unique=true, insertable=true, nullable=true)
 	@ApiModelProperty(notes="Warehouse", name="warehouse", required=true)
 	private Warehouse warehouse;
 
 	@Column(name="BUILDING_NAME", nullable=false, length=50)
-	@NonNull
 	@ApiModelProperty(notes="Building Name", name="buildingName", required=true, value="test building name ABC")
 	private String buildingName;
 
 	@Column(name="STREET1", unique=true, nullable=false, length=100)
-	@NonNull
 	@ApiModelProperty(notes="Street Line 1", name="streetLine1", required=true, value="test street 123 ABC")
 	private String streetLine1;
 
@@ -54,22 +53,18 @@ public class Address implements Serializable {
 	private String streetLine2;
 
 	@Column(name="CITY", nullable=false, length=25)
-	@NonNull
 	@ApiModelProperty(notes="City", name="city", required=true, value="test city XYZ")
 	private String city;
 
 	@Column(name="STATE", nullable=false, length=25)
-	@NonNull
 	@ApiModelProperty(notes="State", name="stateProvince", required=true, value="test state ABC")
 	private String stateProvince;
 
 	@Column(name="ZIP_CODE", nullable=false, length=15)
-	@NonNull
 	@ApiModelProperty(notes="Zip Code", name="zipPostalCode", required=true, value="test zip code 12345")
 	private String zipPostalCode;
 
 	@Column(name="COUNTRY", nullable=false, length=25)
-	@NonNull
 	@ApiModelProperty(notes="Country", name="country", required=true, value="test country USA")
 	private String country;
 }
