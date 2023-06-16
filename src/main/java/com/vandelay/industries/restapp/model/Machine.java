@@ -20,7 +20,7 @@ public class Machine implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="MACHINE_OBJ_ID", unique=true, nullable=false)
-	@ApiModelProperty(notes="Machine ID", name="machineId", required=false)
+	@ApiModelProperty(notes="Machine ID", name="machineId")
 	private Integer machineId;
 
 	@Column(name="MACHINE_NAME", nullable=false, length=50)

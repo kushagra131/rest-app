@@ -26,7 +26,7 @@ public class Factory implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="FACTORY_OBJ_ID", unique=true, nullable=false)
-	@ApiModelProperty(notes="Factory ID", name="factoryId", required=false)
+	@ApiModelProperty(notes="Factory ID", name="factoryId")
 	private Integer factoryId;
 
 	@Column(name="FACTORY_NAME", nullable=false, length=50)
@@ -34,7 +34,7 @@ public class Factory implements Serializable {
 	private String factoryName;
 
 	@Column(name="FACTORY_DESCRIPTION", length=100)
-	@ApiModelProperty(notes="Factory Description", name="factoryDescription", required=false, value="test description for factory ABC")
+	@ApiModelProperty(notes="Factory Description", name="factoryDescription", value="test description for factory ABC")
 	private String factoryDescription;
 
 	@JsonIgnoreProperties("factory")
@@ -56,7 +56,7 @@ public class Factory implements Serializable {
 
 	@JsonIgnoreProperties("factory")
 	@OneToMany(mappedBy="factory", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)
-	@ApiModelProperty(notes="List of Machines at Factory", name="machines", required=false)
+	@ApiModelProperty(notes="List of Machines at Factory", name="machines")
 	private List<Machine> machines = new ArrayList<>();
 
 	public void addMachine(Machine machine) {

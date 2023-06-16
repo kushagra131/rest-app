@@ -23,7 +23,7 @@ public class InventoryUpdate implements Serializable {
 
 	@Id
     @Column(name = "ITEM_OBJ_ID")
-	@ApiModelProperty(notes="Inventory Item ID", name="itemId", required=false)
+	@ApiModelProperty(notes="Inventory Item ID", name="itemId")
     private Integer itemId;
 
 	@ToString.Exclude
@@ -31,7 +31,7 @@ public class InventoryUpdate implements Serializable {
 	@OneToOne(fetch=FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "ITEM_OBJ_ID")
-	@ApiModelProperty(notes="Inventory Item", name="item", required=false)
+	@ApiModelProperty(notes="Inventory Item", name="item")
 	private InventoryItem item;
 
 	@Column(name="ITEM_DELETE", columnDefinition="boolean default false", nullable=false)

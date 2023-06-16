@@ -25,7 +25,7 @@ public class Inventory implements Serializable {
 
 	@Id
     @Column(name="INVENTORY_OBJ_ID")
-	@ApiModelProperty(notes="Inventory ID", name="inventoryId", required=false)
+	@ApiModelProperty(notes="Inventory ID", name="inventoryId")
     private Integer inventoryId;
 
 	@ToString.Exclude
