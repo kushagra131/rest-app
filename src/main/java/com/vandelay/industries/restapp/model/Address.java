@@ -21,14 +21,14 @@ public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="ADDRESS_OBJ_ID", unique=true, nullable=false)
-	@ApiModelProperty(notes="Address ID", name="addressId", required=false)
+	@ApiModelProperty(notes="Address ID", name="addressId")
 	private Integer addressId;
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@JsonIgnoreProperties("address")
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="FACTORY_OBJ_ID", unique=true, insertable=true, nullable=true)
+	@JoinColumn(name="FACTORY_OBJ_ID", unique=true)
 	@ApiModelProperty(notes="Factory", name="factory", required=true)
 	private Factory factory;
 
@@ -36,7 +36,7 @@ public class Address implements Serializable {
 	@EqualsAndHashCode.Exclude
 	@JsonIgnoreProperties("address")
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="WAREHOUSE_OBJ_ID", unique=true, insertable=true, nullable=true)
+	@JoinColumn(name="WAREHOUSE_OBJ_ID", unique=true)
 	@ApiModelProperty(notes="Warehouse", name="warehouse", required=true)
 	private Warehouse warehouse;
 
@@ -48,8 +48,8 @@ public class Address implements Serializable {
 	@ApiModelProperty(notes="Street Line 1", name="streetLine1", required=true, value="test street 123 ABC")
 	private String streetLine1;
 
-	@Column(name="STREET2", unique=true, nullable=true, length=50)
-	@ApiModelProperty(notes="Street Line 2", name="streetLine2", required=false, value="")
+	@Column(name="STREET2", unique=true, length=50)
+	@ApiModelProperty(notes="Street Line 2", name="streetLine2")
 	private String streetLine2;
 
 	@Column(name="CITY", nullable=false, length=25)

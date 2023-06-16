@@ -24,7 +24,7 @@ public class Warehouse implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="WAREHOUSE_OBJ_ID", unique=true, nullable=false)
-	@ApiModelProperty(notes="Warehouse ID", name="warehouseId", required=false)
+	@ApiModelProperty(notes="Warehouse ID", name="warehouseId")
 	private Integer warehouseId;
 
 	@Column(name="WAREHOUSE_NAME", nullable=false, length=50)
@@ -32,7 +32,7 @@ public class Warehouse implements Serializable {
 	private String warehouseName;
 
 	@Column(name="WAREHOUSE_DESCRIPTION", length=100)
-	@ApiModelProperty(notes="Warehouse Description", name="warehouseDescription", required=false, value="test description for warehouse ABC")
+	@ApiModelProperty(notes="Warehouse Description", name="warehouseDescription", value="test description for warehouse ABC")
 	private String warehouseDescription;
 
 	@JsonIgnoreProperties(value = { "warehouse" }, allowSetters = true)

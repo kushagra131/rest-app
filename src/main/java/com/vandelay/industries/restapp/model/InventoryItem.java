@@ -20,7 +20,7 @@ public class InventoryItem implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="ITEM_OBJ_ID", nullable=false, unique=true)
-	@ApiModelProperty(notes="Inventory Item ID", name="itemId", required=false)
+	@ApiModelProperty(notes="Inventory Item ID", name="itemId")
 	private Integer itemId;
 
 	@Column(name="ITEM_SKU", unique=true, nullable=false, length=10)
@@ -36,7 +36,7 @@ public class InventoryItem implements Serializable {
 	private String itemName;
 
 	@Column(name="ITEM_DESCRIPTION", length=100)
-	@ApiModelProperty(notes="Item Description", name="itemDescription", required=false, value="test item description qwerty")
+	@ApiModelProperty(notes="Item Description", name="itemDescription", value="test item description qwerty")
 	private String itemDescription;
 
 	@ToString.Exclude
@@ -49,7 +49,7 @@ public class InventoryItem implements Serializable {
 	@JsonIgnoreProperties("item")
 	@OneToOne(mappedBy="item", cascade=CascadeType.ALL, orphanRemoval=true)
 	@PrimaryKeyJoinColumn(name="ITEM_OBJ_ID")
-	@ApiModelProperty(notes="Inventory Item Update", name="inventoryUpdate", required=false)
+	@ApiModelProperty(notes="Inventory Item Update", name="inventoryUpdate")
 	private InventoryUpdate inventoryUpdate;
 
 	public void setInventoryUpdate(InventoryUpdate inventoryUpdate) {
