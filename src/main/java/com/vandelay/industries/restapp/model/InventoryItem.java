@@ -2,7 +2,7 @@ package com.vandelay.industries.restapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import lombok.*;
 
