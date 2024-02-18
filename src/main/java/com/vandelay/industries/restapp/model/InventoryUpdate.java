@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,19 +22,16 @@ public class InventoryUpdate implements Serializable {
 
 	@Id
     @Column(name = "ITEM_OBJ_ID")
-	@ApiModelProperty(notes="Inventory Item ID", name="itemId")
-    private Integer itemId;
+	private Integer itemId;
 
 	@ToString.Exclude
 	@JsonIgnoreProperties("items")
 	@OneToOne(fetch=FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "ITEM_OBJ_ID")
-	@ApiModelProperty(notes="Inventory Item", name="item")
 	private InventoryItem item;
 
 	@Column(name="ITEM_DELETE", columnDefinition="boolean default false", nullable=false)
-	@ApiModelProperty(notes="Item Delete", name="itemDelete", required=true, value="false")
 	private Boolean itemDelete;
 
 }

@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -20,15 +19,12 @@ public class Machine implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="MACHINE_OBJ_ID", unique=true, nullable=false)
-	@ApiModelProperty(notes="Machine ID", name="machineId")
 	private Integer machineId;
 
 	@Column(name="MACHINE_NAME", nullable=false, length=50)
-	@ApiModelProperty(notes="Machine Name", name="machineName", required=true, value="test machine name ABC")
 	private String machineName;
 
 	@Column(name="MACHINE_DESCRIPTION", length=100)
-	@ApiModelProperty(notes="Machine description", name="machineDescription", required=true, value="test machine description ABC")
 	private String machineDescription;
 
 	@ToString.Exclude
@@ -36,7 +32,6 @@ public class Machine implements Serializable {
 	@JsonIgnoreProperties("machines")
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name="FACTORY_OBJ_ID", nullable=false)
-	@ApiModelProperty(notes="Factory", name="factory", required=true)
 	private Factory factory;
 
 }
