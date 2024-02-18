@@ -30,14 +30,9 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>8.2.0</version>
+            <version>8.3.0</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -50,11 +45,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
         </dependency>
 
         <!-- Testing Dependencies -->
@@ -71,6 +61,7 @@
         </dependency>
     </dependencies>
 
+    <!-- Build Plugins -->
     <build>
         <plugins>
             <plugin>

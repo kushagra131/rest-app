@@ -17,4 +17,5 @@ public class ResourceNotFoundAdvice {
 	String factoryNotFoundHandler(ResourceNotFoundException ex) {
 		return ex.getMessage();
 	}
+
 }

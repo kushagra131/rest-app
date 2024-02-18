@@ -4,13 +4,11 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Entity
 @Table(name="WAREHOUSE")
@@ -24,49 +22,41 @@ public class Warehouse implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="WAREHOUSE_OBJ_ID", unique=true, nullable=false)
-	@ApiModelProperty(notes="Warehouse ID", name="warehouseId")
 	private Integer warehouseId;
 
 	@Column(name="WAREHOUSE_NAME", nullable=false, length=50)
-	@ApiModelProperty(notes="Warehouse Name", name="warehouseName", required=true, value="test warehouse name ABC")
 	private String warehouseName;
 
 	@Column(name="WAREHOUSE_DESCRIPTION", length=100)
-	@ApiModelProperty(notes="Warehouse Description", name="warehouseDescription", value="test description for warehouse ABC")
 	private String warehouseDescription;
 
 	@JsonIgnoreProperties(value = { "warehouse" }, allowSetters = true)
 	@OneToOne(mappedBy="warehouse", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)
-	@ApiModelProperty(notes="Warehouse Address", name="address", required=true)
 	private Address address;
 
 	public void setAddress(Address address) {
 		if(address == null) {
-			if(this.address != null) {
+			if(this.address != null)
 				this.address.setFactory(null);
-			}
-		}
-		else {
+		} else
 			address.setWarehouse(this);
-		}
+
 		this.address = address;
 	}
 
 	@JsonIgnoreProperties("warehouse")
 	@OneToOne(mappedBy="warehouse", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)
 	@PrimaryKeyJoinColumn(name="WAREHOUSE_OBJ_ID")
-	@ApiModelProperty(notes="Warehouse Inventory", name="inventory", required=true)
 	private Inventory inventory;
 
 	public void setInventory(Inventory inventory) {
 		if(inventory == null) {
-			if(this.inventory != null) {
+			if(this.inventory != null)
 				this.inventory.setWarehouse(null);
-			}
-		}
-		else {
+		} else
 			inventory.setWarehouse(this);
-		}
+
 		this.inventory = inventory;
 	}
+
 }

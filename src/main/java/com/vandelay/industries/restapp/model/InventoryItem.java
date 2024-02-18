@@ -1,7 +1,6 @@
 package com.vandelay.industries.restapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -20,48 +19,40 @@ public class InventoryItem implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="ITEM_OBJ_ID", nullable=false, unique=true)
-	@ApiModelProperty(notes="Inventory Item ID", name="itemId")
 	private Integer itemId;
 
 	@Column(name="ITEM_SKU", unique=true, nullable=false, length=10)
-	@ApiModelProperty(notes="Item SKU#", name="itemSKU", required=true, value="123456789")
 	private Integer itemSKU;
 
 	@Column(name="ITEM_QUANTITY", nullable=false)
-	@ApiModelProperty(notes="Item Quantity", name="itemQuantity", required=true, value="10")
 	private Integer itemQuantity;
 
 	@Column(name="ITEM_NAME", nullable=false, length=50)
-	@ApiModelProperty(notes="Item Name", name="itemName", required=true, value="test item name qwerty")
 	private String itemName;
 
 	@Column(name="ITEM_DESCRIPTION", length=100)
-	@ApiModelProperty(notes="Item Description", name="itemDescription", value="test item description qwerty")
 	private String itemDescription;
 
 	@ToString.Exclude
 	@JsonIgnoreProperties("items")
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name="INVENTORY_OBJ_ID", nullable=false)
-	@ApiModelProperty(notes="Inventory", name="inventory", required=true)
 	private Inventory inventory;
 
 	@JsonIgnoreProperties("item")
 	@OneToOne(mappedBy="item", cascade=CascadeType.ALL, orphanRemoval=true)
 	@PrimaryKeyJoinColumn(name="ITEM_OBJ_ID")
-	@ApiModelProperty(notes="Inventory Item Update", name="inventoryUpdate")
 	private InventoryUpdate inventoryUpdate;
 
 	public void setInventoryUpdate(InventoryUpdate inventoryUpdate) {
 		if(inventoryUpdate == null) {
-			if(this.inventoryUpdate != null) {
+			if(this.inventoryUpdate != null)
 				this.inventoryUpdate.setItem(null);
-			}
-		}
-		else {
+		} else {
 			inventoryUpdate.setItemDelete(false);
 			inventoryUpdate.setItem(this);
 		}
 		this.inventoryUpdate = inventoryUpdate;
 	}
+
 }
